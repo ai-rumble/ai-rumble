@@ -8,6 +8,7 @@ export const environment = {
   appName: 'AI Rumble',
   strapiUrlPrefix: '',
   loginUrlPrefix: '',
+  environment: 'LOCAL',
 };
 
 /*
