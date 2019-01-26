@@ -1,0 +1,55 @@
+<div class="flex-center flex-fill">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-5 col-lg-6 col-md-10 col-sm-12 mx-auto mt-lg-5">
+        <div class="card wow fadeIn border border-info rounded" data-wow-delay="0.3s" style="animation-name: none; visibility: visible;">
+          <div class="card-body special-color">
+            <div class="form-header special-color-dark border border-info rounded">
+              <h3 class="display-4 text-white"><i class="fa fa-user mt-2 mb-2 mr-3"></i> Sign Up</h3>
+            </div>
+            <form [formGroup]="signupForm" (ngSubmit)="signUp(username, password, email)">
+              <div class="form-group mt-5">
+                <div class="md-form">
+                  <i class="fa fa-envelope prefix white-text"></i>
+                  <input type="text" id="orangeForm-email" formControlName="email" class="form-control text-white"
+                    mdbInputDirective data-error="Must be a valid email address." data-success="Looks good!">
+                  <label for="orangeForm-email" class="text-white">Email</label>
+                </div>
+              </div>
+              <div class="form-group mt-5">
+                <div class="md-form">
+                  <i class="fa fa-user prefix white-text"></i>
+                  <input type="text" id="orangeForm-username" formControlName="username" class="form-control text-white"
+                    mdbInputDirective data-error="Must be less than 15 characters." data-success="Looks good!">
+                  <label for="orangeForm-username" class="text-white">Username</label>
+                </div>
+              </div>
+              <div class="form-group mt-5">
+                <div class="md-form">
+                  <i class="fa fa-lock prefix white-text"></i>
+                  <input type="password" id="orangeForm-pass" formControlName="password" class="form-control text-white"
+                    mdbInputDirective data-success="Looks good!">
+                  <label for="orangeForm-pass" class="text-white">Password</label>
+                </div>
+              </div>
+              <div *ngIf="this.error && this.errorMessage" class="alert alert-danger text-center border border-danger mt-5"
+                role="alert">
+                {{ this.errorMessage }}
+              </div>
+              <div *ngIf="!this.error && this.successMessage" class="alert alert-success text-center border border-success mt-5"
+                role="alert">
+                {{ this.successMessage }}
+              </div>
+              <div class="form-group text-center mt-5">
+                <button class="border border-info rounded font-weight-bold btn special-color-dark btn-lg waves-effect waves-light text-white"
+                  mdbWavesEffect [disabled]="!email.valid || !username.valid || !password.valid">
+                  Sign Up
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

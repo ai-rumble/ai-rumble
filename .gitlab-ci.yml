@@ -1,0 +1,137 @@
+image: node:latest
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+before_script:
+  - apt-get update && apt-get install -y unzip fontconfig locales gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget sshpass
+
+stages:
+  - build-dev
+  - deploy-dev
+  - build-test-prod
+  - test
+  - deploy-test
+  - deploy-prod
+
+###############################################################################
+# TEST STEPS
+###############################################################################
+ng test:
+  stage: test
+  script:
+    - npm install --silent
+    - node_modules/.bin/ng test --code-coverage
+  dependencies:
+    - build test
+  only:
+    - master
+  when: manual
+
+ng e2e:
+  stage: test
+  script:
+    - npm install --silent
+    - node_modules/.bin/ng e2e
+  dependencies:
+    - build test
+  only:
+    - master
+  when: manual
+
+###############################################################################
+# BUILD STEPS
+###############################################################################
+build dev:
+  stage: build-dev
+  script:
+    - npm install --silent
+    - node_modules/.bin/ng build --aot --configuration=dev
+  artifacts:
+    name: "project-$CI_COMMIT_REF_NAME-dev"
+    paths:
+      - dist/
+  only:
+    - develop
+
+build test:
+  stage: build-test-prod
+  script:
+    - npm install --silent
+    - node_modules/.bin/ng build --aot --configuration=test
+  artifacts:
+    name: "project-$CI_COMMIT_REF_NAME-test"
+    paths:
+      - dist/
+  only:
+    - master
+
+build prod:
+  stage: build-test-prod
+  script:
+    - npm install --silent
+    - node_modules/.bin/ng build --aot --configuration=production
+  artifacts:
+    name: "project-$CI_COMMIT_REF_NAME-prod"
+    paths:
+      - dist/
+  only:
+    - master
+
+
+###############################################################################
+# DEPLOY STEPS
+###############################################################################
+deploy to dev:
+  stage: deploy-dev
+  variables:
+    username: ${DEV_USER}
+    password: ${DEV_PASSWORD}
+    ip: ${DEV_IP}
+    dest_path: /var/www/html/ai-rumbleDEV
+  script:
+    - sshpass -p $password scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -prq ./dist/. $username@$ip:$dest_path
+  environment:
+    name: dev
+    url: https://dev.airumble.com
+  only:
+    - develop
+  dependencies:
+    - build dev
+
+deploy to test:
+  stage: deploy-test
+  variables:
+    username: "${TEST_USER}"
+    password: "${TEST_PASSWORD}"
+    ip: "${TEST_IP}"
+    dest_path: "/var/www/html/ai-rumbleTEST"
+  script:
+    - sshpass -p $password scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -prq ./dist/. $username@$ip:$dest_path
+  environment:
+    name: test
+    url: https://test.airumble.com
+  dependencies:
+    - build test
+  only:
+    - master
+
+deploy to prod:
+  stage: deploy-prod
+  variables:
+    username: "${PROD_USER}"
+    password: "${PROD_PASSWORD}"
+    ip: "${PROD_IP}"
+    dest_path: "/var/www/html/ai-rumble"
+  script:
+    - sshpass -p $password scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -prq ./dist/. $username@$ip:$dest_path
+  environment:
+    name: production
+    url: https://airumble.com
+  dependencies:
+    - build prod
+  only:
+    - master
+  when: manual

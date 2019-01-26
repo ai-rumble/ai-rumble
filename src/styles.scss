@@ -1,1 +1,114 @@
 /* You can add global styles to this file, and also import other style files */
+// colors
+$primary-color: #4285F4;
+$danger-color: #ff4444;
+$warning-color: #ffbb33;
+$success-color: #00C851;
+$info-color: #33b5e5;
+$default-color: #2BBBAD;
+$secondary-color: #aa66cc;
+
+$primary-color-dark: #0d47a1;
+$danger-color-dark: #CC0000;
+$warning-color-dark: #FF8800;
+$success-color-dark: #007E33;
+$info-color-dark: #0099CC;
+$default-color-dark: #00695c;
+$secondary-color-dark: #9933CC;
+
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  margin: 0;
+  background-repeat: round;
+  background-attachment: fixed;
+}
+
+
+// Custom HR
+.hr-info {
+  border-top: 1px solid $info-color;
+}
+
+.hr-info-dark {
+  border-top: 1px solid $info-color-dark;
+}
+
+.hr-success {
+  border-top: 1px solid $success-color;
+}
+
+.hr-success-dark {
+  border-top: 1px solid $success-color-dark;
+}
+
+.hr-warning {
+  border-top: 1px solid $warning-color;
+}
+
+.hr-warning-dark {
+  border-top: 1px solid $warning-color-dark;
+}
+
+.hr-danger {
+  border-top: 1px solid $danger-color;
+}
+
+.hr-danger-dark {
+  border-top: 1px solid $danger-color-dark;
+}
+
+.hr-default {
+  border-top: 1px solid $default-color;
+}
+
+.hr-default-dark {
+  border-top: 1px solid $default-color-dark;
+}
+
+.hr-primary {
+  border-top: 1px solid $primary-color;
+}
+
+.hr-primary-dark {
+  border-top: 1px solid $primary-color-dark;
+}
+
+.hr-secondary {
+  border-top: 1px solid $secondary-color;
+}
+
+.hr-secondary-dark {
+  border-top: 1px solid $secondary-color-dark;
+}
+
+// Custom Borders
+.border-info-dark {
+  border-color: $info-color-dark !important;
+}
+
+.border-danger-dark {
+  border-color: $danger-color-dark !important;
+}
+
+.border-warning-dark {
+  border-color: $warning-color-dark !important;
+}
+
+.border-success-dark {
+  border-color: $success-color-dark !important;
+}
+
+.border-default-dark {
+  border-color: $default-color-dark !important;
+}
+
+.border-primary-dark {
+  border-color: $primary-color-dark !important;
+}
+
+.border-secondary-dark {
+  border-color: $secondary-color-dark !important;
+}

@@ -1,0 +1,25 @@
+<header class="main-header">
+  <!--Navbar-->
+  <mdb-navbar SideClass="navbar navbar-expand-lg navbar-sm navbar-dark special-color-dark fixed-top justify-content-end">
+    <!-- Navbar brand -->
+    <mdb-navbar-brand><a class="navbar-brand" href="#"><span class="font-weight-bold mr-2 text-danger">{{env.environment}}</span>{{env.appName}}</a></mdb-navbar-brand>
+    <!-- Collapsible content -->
+    <links>
+      <!-- Links -->
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" routerLinkActive="active">
+          <a routerLink="home" class="rounded nav-link waves-effect waves-light" mdbWavesEffect>Home</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" [hidden]="this.userIsLoggedIn()">
+          <a routerLink="login" class="rounded nav-link waves-effect waves-light" mdbWavesEffect>Log In</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" [hidden]="!this.userIsLoggedIn()">
+          <a routerLink="logout" class="rounded nav-link waves-effect waves-light" mdbWavesEffect>Log Out</a>
+        </li>
+      </ul>
+    </links>
+    <!-- Collapsible content -->
+  </mdb-navbar>
+  <!--/.Navbar-->
+</header>
+<router-outlet></router-outlet>

@@ -1,0 +1,15 @@
+.fa-heart {
+  color: hotpink;
+}
+
+.fixed-bottom {
+  width: 100%;
+  height: 5.11vh !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .fixed-bottom {
+    width: 100%;
+    height: 8.11vh !important;
+  }
+}

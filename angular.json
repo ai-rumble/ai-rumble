@@ -27,9 +27,17 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/font-awesome/scss/font-awesome.scss",
+              "node_modules/ng-uikit-pro-standard/assets/scss/bootstrap/bootstrap.scss",
+              "node_modules/ng-uikit-pro-standard/assets/scss/mdb.scss",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/chart.js/dist/Chart.js",
+              "node_modules/easy-pie-chart/dist/easypiechart.js",
+              "node_modules/screenfull/dist/screenfull.js",
+              "node_modules/hammerjs/hammer.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -55,6 +63,22 @@
                   "maximumError": "5mb"
                 }
               ]
+            },
+            "test": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.test.ts"
+                }
+              ]
+            },
+            "dev": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ]
             }
           }
         },
@@ -66,6 +90,12 @@
           "configurations": {
             "production": {
               "browserTarget": "ai-rumble:build:production"
+            },
+            "test": {
+              "browserTarget": "ai-rumble:build:test"
+            },
+            "dev": {
+              "browserTarget": "ai-rumble:build:dev"
             }
           }
         },
@@ -120,6 +150,9 @@
           "configurations": {
             "production": {
               "devServerTarget": "ai-rumble:serve:production"
+            },
+            "test": {
+              "devServerTarget": "ai-rumble:serve:test"
             }
           }
         },
