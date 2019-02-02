@@ -46,8 +46,6 @@ ng e2e:
 ###############################################################################
 build dev:
   stage: build-dev
-  variables:
-    CI_DEBUG_TRACE: "true"
   script:
     - npm install --silent
     - node_modules/.bin/ng build --aot --configuration=dev
