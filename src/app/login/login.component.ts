@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
   errorMessage: string = null;
   successMessage: string = null;
 
-  constructor(private authService: AuthService, private formBuilder: FormBuilder) { }
+  constructor(private authService: AuthService, private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit() {
     this.createFormControls();
@@ -48,6 +49,8 @@ export class LoginComponent implements OnInit {
     }).subscribe((res) => {
       this.successMessage = `Successfully authenticated, welcome <span class="font-weight-bold">${res.user.username}</span> : ^ )`;
       this.error = false;
+
+      this.router.navigate(['/', 'home']);
     });
   }
 

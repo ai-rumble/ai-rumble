@@ -14,7 +14,10 @@
           <a routerLink="login" class="rounded nav-link waves-effect waves-light" mdbWavesEffect>Log In</a>
         </li>
         <li class="nav-item" routerLinkActive="active" [hidden]="!this.userIsLoggedIn()">
-          <a routerLink="logout" class="rounded nav-link waves-effect waves-light" mdbWavesEffect>Log Out</a>
+          <a routerLink="logout" class="rounded nav-link waves-effect waves-light mr-2" mdbWavesEffect>Log Out</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" [hidden]="!this.userIsLoggedIn()">
+          <a routerLink="profile" class="rounded nav-link waves-effect waves-light font-weight-bold text-white">{{this.loggedInUsername()}}</a>
         </li>
       </ul>
     </links>

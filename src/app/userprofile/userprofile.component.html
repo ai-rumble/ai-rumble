@@ -1,0 +1,14 @@
+<div class="container">
+  <mdb-card [hidden]="profileLoading" class="border border-warning-dark">
+    <mdb-card-body class="special-color-dark">
+      <div class="row ml-1">
+        <h2 class="text-center text-white">{{this.currentUser.username}} &#40;<em class="h3">{{this.currentUser.email}}</em>&#41;</h2>
+        <img src="{{this.environment.strapiUrlPrefix}}{{this.currentUser.picture.url}}" class="ml-auto mr-3 col-4">
+      </div>
+
+      <hr class="hr-warning-dark">
+
+      <h3 class="text-center text-white">{{this.currentUser.about_me}}</h3>
+    </mdb-card-body>
+  </mdb-card>
+</div>

@@ -18,6 +18,7 @@ import { EscapeHtmlPipe } from './pipes/keep-html.pipe';
 import { routes } from './routes';
 import { SignupComponent } from './signup/signup.component';
 import { UiModule } from './ui/ui.module';
+import { UserprofileComponent } from './userprofile/userprofile.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { UiModule } from './ui/ui.module';
     LogoutComponent,
     EscapeHtmlPipe,
     HomeComponent,
+    UserprofileComponent,
   ],
   imports: [
     BrowserModule,

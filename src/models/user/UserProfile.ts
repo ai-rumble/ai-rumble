@@ -1,7 +1,7 @@
 import { Image } from '../Image';
 import { Identity } from './Identity';
 
-export interface UserProfile {
+export class UserProfile {
   username: string;
   email: string;
   about_me: string;

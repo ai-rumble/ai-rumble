@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { UserProfile } from 'src/models/user/UserProfile';
 import * as Strapi from 'strapi-sdk-javascript';
 import { environment } from '../../environments/environment';
 
@@ -28,5 +29,15 @@ export class StrapiService {
 
       return Observable.throw(err);
     }).map((res: any) => res);
+  }
+
+  public getUserProfileByUsername(username: string) {
+
+    return this.http.get(`${environment.strapiUrlPrefix}userprofiles/?username=${username}`).catch((err) => {
+      console.log(`ERR during strapi/userprofiles/?username=${username} GET: ${JSON.stringify(err)}`);
+
+      return Observable.throw(err);
+    }).map((res: UserProfile) => res[0]);
+
   }
 }

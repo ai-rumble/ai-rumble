@@ -3,6 +3,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { SignupComponent } from './signup/signup.component';
+import { UserprofileComponent } from './userprofile/userprofile.component';
 
 const indexRoute: Route = {
   path: '',
@@ -28,6 +29,12 @@ export const routes: Routes = [
   },
   {
     path: 'home', component: HomeComponent,
+  },
+  {
+    path: 'profile', component: UserprofileComponent,
+  },
+  {
+    path: 'profile/:username', component: UserprofileComponent,
   },
   indexRoute,
   fallbackRoute,

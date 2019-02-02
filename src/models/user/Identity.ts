@@ -1,4 +1,5 @@
 import { Role } from './Role';
+import { UserProfile } from './UserProfile';
 
 export interface Identity {
   _id: string;
@@ -9,6 +10,6 @@ export interface Identity {
   provider: string;
   role: Role;
   __v: number;
-  userprofile: string;
+  userprofile: UserProfile;
   id: string;
 }
