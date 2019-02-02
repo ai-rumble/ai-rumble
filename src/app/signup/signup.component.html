@@ -2,9 +2,9 @@
   <div class="container">
     <div class="row">
       <div class="col-xl-5 col-lg-6 col-md-10 col-sm-12 mx-auto mt-lg-5">
-        <div class="card wow fadeIn border border-info rounded" data-wow-delay="0.3s" style="animation-name: none; visibility: visible;">
+        <div class="card wow fadeIn border border-warning-dark rounded" data-wow-delay="0.3s" style="animation-name: none; visibility: visible;">
           <div class="card-body special-color">
-            <div class="form-header special-color-dark border border-info rounded">
+            <div class="form-header special-color-dark border border-warning-dark rounded">
               <h3 class="display-4 text-white"><i class="fa fa-user mt-2 mb-2 mr-3"></i> Sign Up</h3>
             </div>
             <form [formGroup]="signupForm" (ngSubmit)="signUp(username, password, email)">
@@ -41,7 +41,7 @@
                 {{ this.successMessage }}
               </div>
               <div class="form-group text-center mt-5">
-                <button class="border border-info rounded font-weight-bold btn special-color-dark btn-lg waves-effect waves-light text-white"
+                <button class="border border-warning-dark rounded font-weight-bold btn special-color-dark btn-lg waves-effect waves-light text-white"
                   mdbWavesEffect [disabled]="!email.valid || !username.valid || !password.valid">
                   Sign Up
                 </button>

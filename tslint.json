@@ -37,6 +37,8 @@
         "limit": 200,
         "ignore-pattern": "^import |^export {(.*?)}"
       }
-    ]
+    ],
+    "ter-arrow-parens": false,
+    "whitespace": false
   }
 }

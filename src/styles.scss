@@ -7,6 +7,10 @@ $success-color: #00C851;
 $info-color: #33b5e5;
 $default-color: #2BBBAD;
 $secondary-color: #aa66cc;
+$elegant-color: #2E2E2E;
+$stylish-color: #4B515D;
+$unique-color: #3F729B;
+$special-color: #37474F;
 
 $primary-color-dark: #0d47a1;
 $danger-color-dark: #CC0000;
@@ -15,15 +19,18 @@ $success-color-dark: #007E33;
 $info-color-dark: #0099CC;
 $default-color-dark: #00695c;
 $secondary-color-dark: #9933CC;
+$elegant-color-dark: #212121;
+$stylish-color-dark: #3E4551;
+$unique-color-dark: #1C2331;
+$special-color-dark: #263238;
 
-html {
-  height: 100%;
-}
+
 body {
-  height: 100%;
-  margin: 0;
-  background-repeat: round;
-  background-attachment: fixed;
+  height: 91vh;
+  margin-top: -55px;
+  margin-bottom: 90px;
+
+  background-color: $stylish-color-dark;
 }
 
 
@@ -111,4 +118,30 @@ body {
 
 .border-secondary-dark {
   border-color: $secondary-color-dark !important;
+}
+.border-elegant {
+  border-color: $elegant-color !important;
+}
+.border-stylish {
+  border-color: $stylish-color !important;
+}
+.border-unique {
+  border-color: $unique-color !important;
+}
+.border-special {
+  border-color: $special-color !important;
+}
+
+
+.border-elegant-dark {
+  border-color: $elegant-color-dark !important;
+}
+.border-stylish-dark {
+  border-color: $stylish-color-dark !important;
+}
+.border-unique-dark {
+  border-color: $unique-color-dark !important;
+}
+.border-special-dark {
+  border-color: $special-color-dark !important;
 }

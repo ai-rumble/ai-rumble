@@ -1,34 +1,8 @@
-.embed-responsive {
-  height: 91vh !important;
+app-home {
+  height: 70vh !important;
   pointer-events:none;
-  margin-top:-1vh;
+  margin-top:12vh;
   margin-bottom:-5vh;
   width: 100vw !important;
   z-index: 1;
 }
-
-#app-name-overlay {
-  margin-top: -15vh;
-  margin-bottom: 58vh;
-}
-
-#app-desc-overlay {
-  margin-top: 70vh;
-}
-
-
-#overlay {
-  position: fixed; /* Sit on top of the page content */
-  width: 100%; /* Full width (cover the whole page) */
-  height: 100%; /* Full height (cover the whole page) */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-  cursor: pointer; /* Add a pointer on hover */
-  color: red;
-  pointer-events:none;
-}
-

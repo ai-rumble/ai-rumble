@@ -9,4 +9,6 @@ export interface Identity {
   provider: string;
   role: Role;
   __v: number;
+  userprofile: string;
+  id: string;
 }

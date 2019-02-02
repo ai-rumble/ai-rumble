@@ -5,7 +5,10 @@ import { Observable } from 'rxjs/Rx';
 import { LoginPayload } from 'src/models/user/LoginPayload';
 import { SignUpPayload } from 'src/models/user/SignUpPayload';
 import { User } from 'src/models/user/User';
+import { UserProfile } from 'src/models/user/UserProfile';
+import { UserProfilePayload } from 'src/models/user/UserProfilePayload';
 import { environment } from '../../environments/environment';
+import { StrapiService } from './strapi.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +18,7 @@ export class AuthService {
 
   error: string = null;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private strapi: StrapiService) { }
 
   login(username: string, password: string): Observable<any> {
     const payload: LoginPayload = new LoginPayload(username, password);
@@ -42,7 +45,28 @@ export class AuthService {
       console.log(`Got ${JSON.stringify(res)} from signup attempt`);
 
       this.setSession(res);
-    }).map((res: User) => res.jwt);
+
+    }).catch((err: any) => {
+      console.log(`Error while setting session & creating userProfile: ${err}`);
+
+      return Observable.throw(err);
+
+    }).map((res: User) => res);
+  }
+
+  public createUserProfile(username: string, email: string, user: string, image: null) {
+    const payload: UserProfilePayload = new UserProfilePayload(username, email, user);
+
+    console.log(`Trying to create new userprofile with payload: ${JSON.stringify(payload)}`);
+
+    return this.http.post(`${environment.strapiUrlPrefix}userprofiles`, payload).catch((err) => {
+      console.log(`ERR during strapi/userprofiles POST: ${JSON.stringify(err)}`);
+
+      return Observable.throw(err);
+    }).do((res: UserProfile) => {
+      console.log(`Got ${JSON.stringify(res)} from new userprofile attempt`);
+
+    });
   }
 
   private setSession(authResult: any) {

@@ -49,12 +49,19 @@ export class SignupComponent implements OnInit {
       this.errorMessage = err.error.message;
       return Observable.throw(err);
     }).subscribe((res) => {
-      this.successMessage = 'Successfully registered, you can now log in : ^ )';
-      this.error = false;
-      this.email.reset();
-      this.password.reset();
-      this.username.reset();
+      // if base strapi signup worked, create a UserProfile obj in strapi
+      console.log(`res: ${JSON.stringify(res)}`);
+      this.authService.createUserProfile(username.value, email.value, res.user, null).catch((err) => {
+        this.error = true;
+        this.errorMessage = err.error.message;
+        return Observable.throw(err);
+      }).subscribe((res) => {
+        this.successMessage = 'Successfully registered, you can now log in : ^ )';
+        this.error = false;
+        this.email.reset();
+        this.password.reset();
+        this.username.reset();
+      });
     });
   }
-
 }
