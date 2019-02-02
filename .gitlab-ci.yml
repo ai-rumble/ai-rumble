@@ -19,7 +19,7 @@ stages:
 ng test:
   stage: test
   script:
-    - npm install --silent
+    - npm install
     - node_modules/.bin/ng test --code-coverage
   dependencies:
     - build test
@@ -30,7 +30,7 @@ ng test:
 ng e2e:
   stage: test
   script:
-    - npm install --silent
+    - npm install
     - node_modules/.bin/ng e2e
   dependencies:
     - build test
@@ -56,7 +56,7 @@ build dev:
 build test:
   stage: build-test-prod
   script:
-    - npm install --silent
+    - npm install
     - node_modules/.bin/ng build --aot --configuration=test
   artifacts:
     name: "project-$CI_COMMIT_REF_NAME-test"
@@ -68,7 +68,7 @@ build test:
 build prod:
   stage: build-test-prod
   script:
-    - npm install --silent
+    - npm install
     - node_modules/.bin/ng build --aot --configuration=production
   artifacts:
     name: "project-$CI_COMMIT_REF_NAME-prod"
