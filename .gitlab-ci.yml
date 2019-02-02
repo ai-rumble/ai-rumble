@@ -47,7 +47,7 @@ ng e2e:
 build dev:
   stage: build-dev
   script:
-    - npm install --silent
+    - npm install
     - node_modules/.bin/ng build --aot --configuration=dev
   artifacts:
     name: "project-$CI_COMMIT_REF_NAME-dev"
