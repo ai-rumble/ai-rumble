@@ -1,4 +1,5 @@
 import { Route, Routes } from '@angular/router';
+import { CompetitionsComponent } from './competitions/competitions.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
@@ -35,6 +36,9 @@ export const routes: Routes = [
   },
   {
     path: 'profile/:username', component: UserprofileComponent,
+  },
+  {
+    path: 'competitions', component: CompetitionsComponent,
   },
   indexRoute,
   fallbackRoute,

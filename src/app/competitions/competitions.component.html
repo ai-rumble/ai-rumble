@@ -1,0 +1,12 @@
+<div class="container">
+  <mdb-card class="border border-warning-dark">
+    <mdb-card-body class="special-color-dark">
+      <h1 class="text-center text-white">AI Rumble Competitions:</h1>
+
+      <div *ngFor="let competition of competitions">
+        <app-competition [competition]="competition"></app-competition>
+      </div>
+
+    </mdb-card-body>
+  </mdb-card>
+</div>>

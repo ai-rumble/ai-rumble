@@ -19,6 +19,8 @@ import { routes } from './routes';
 import { SignupComponent } from './signup/signup.component';
 import { UiModule } from './ui/ui.module';
 import { UserprofileComponent } from './userprofile/userprofile.component';
+import { CompetitionsComponent } from './competitions/competitions.component';
+import { CompetitionComponent } from './competition/competition.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
     EscapeHtmlPipe,
     HomeComponent,
     UserprofileComponent,
+    CompetitionsComponent,
+    CompetitionComponent,
   ],
   imports: [
     BrowserModule,
