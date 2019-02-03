@@ -1,1 +1,0 @@
-https://github.com/thisissoon/angular-scrollspy/blob/master/LICENSE
