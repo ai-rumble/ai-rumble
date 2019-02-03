@@ -39,7 +39,6 @@
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26",
-    "ng-mdb-admin-theme": "file:packages/ng-admin-pro",
     "ng-uikit-pro-standard-lib": "file:packages/ng-uikit-pro-standard",
     "ngx-google-analytics": "0.0.1",
     "puppeteer": "^1.11.0"
